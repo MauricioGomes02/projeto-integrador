@@ -1,0 +1,104 @@
+<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="col-sm-8 col-12">
+      <label for="nome" class="control-label">Nome</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="nome" id="nome">
+    </div>
+    <div class="col-sm-4 col-12">
+      <label for="registroNis" class="control-label">Registro NIS</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="registroNis" id="registroNis">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-4 col-12">
+      <label for="cpf" class="control-label">CPF</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="cpf" id="cpf">
+    </div>
+    <div class="col-sm-4 col-12">
+      <label for="rg" class="control-label">RG</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="rg" id="rg">
+    </div>
+    <div class="col-sm-4 col-12">
+      <label for="rendaFamiliar" class="control-label">Renda Familiar</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="rendaFamiliar" id="rendaFamiliar">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-4 col-12">
+      <label for="profissao" class="control-label">Profissão</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="profissao" id="profissao">
+    </div>
+    <div class="col-sm-4 col-12">
+      <label for="ocupacao" class="control-label">Sua Ocupação atual:</label>
+      <select class="form-control" formControlName="ocupacao" id="ocupacao">
+        <option *ngFor="let itemOcupacao of lstOcupacoes" [value]="itemOcupacao">{{itemOcupacao}}</option>
+      </select>
+    </div>
+    <div class="col-sm-4 col-12">
+      <label for="dtNascimento" class="control-label">Data de Nascimento</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="dtNascimento" id="dtNascimento">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-6 col-12 align-items-center">
+      <label class="control-label" style="display: block !important;">Atendido por algum programa social?</label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="radioAtendidoProgramaSocialSim" name="atendidoProgramaSocial" value="S"
+               formControlName="atendidoProgramaSocial"
+               class="custom-control-input">
+        <label class="custom-control-label" for="radioAtendidoProgramaSocialSim">Sim</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="radioAtendidoProgramaSocialNao" name="atendidoProgramaSocial" value="N"
+               formControlName="atendidoProgramaSocial"
+               class="custom-control-input">
+        <label class="custom-control-label" for="radioAtendidoProgramaSocialNao">Não</label>
+      </div>
+    </div>
+    <div class="col-sm-6 col-12">
+      <label for="programaSocial" class="control-label">Qual programa social?</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="programaSocial" id="programaSocial">
+    </div>
+
+  </div>
+  <div class="form-row">
+    <div class="col-sm-12 col-12">
+      <label for="observacao" class="control-label">Observações</label>
+      <textarea rows="3" class="form-control" id="observacao" formControlName="observacao"></textarea>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-6 col-12">
+      <label for="endereco" class="control-label">Endereco</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="endereco" id="endereco">
+    </div>
+    <div class="col-sm-6 col-12">
+      <label for="telefone" class="control-label">Telefone</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="telefone" id="telefone">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-3 col-12">
+      <label for="totalPessoas" class="control-label">Total de pessoas na casa</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="totalPessoas" id="totalPessoas">
+    </div>
+    <div class="col-sm-9 col-12">
+      <label for="necessidadesEspeciais" class="control-label">Necessidades Especiais?</label>
+      <input type="text" autocomplete="off" class="form-control" formControlName="necessidadesEspeciais" id="necessidadesEspeciais">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-12 col-12">
+      <label for="nomesIdades" class="control-label">Nomes e Idades</label>
+      <textarea rows="3" class="form-control" id="nomesIdades" formControlName="nomesIdades"></textarea>
+    </div>
+  </div>
+  <div class="form-row d-flex justify-content-center">
+    <div class="col-sm-2 col-12">
+      <button type="submit" style="margin-top: 1rem;" class="btn btn-primary form-control">Enviar</button>
+    </div>
+    <div class="col-sm-2 col-12">
+      <button class="btn btn-secondary form-control" style="margin-top: 1rem;" (click)="resetForm()">Cancelar</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*GERAIS*/
+body {
+  font-family: Montserrat,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+}
+
+.row {
+  margin: 0;
+}
+
+.container {
+  padding: 1.5rem 0;
+}
+
+p, li {
+  color: #444;
+  font-size: 14px;
+}
+
+/*BARRA DE NAVEGAÇÃO*/
+header {
+  padding: 2px 0;
+  background-color: #F4A460;
+}
+
+.navbar {
+  border: 1px solid transparent;
+  border-radius: 15px;
+  background-color: white;
+  padding: 0 1rem !important;
+
+}
+
+#nav-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#logo {
+  width: 85px;
+}
+
+.navbar-brand {
+}
+
+.navbar-brand:hover {
+  color: red;
+}
+
+#navbar-links .navbar-nav {
+  border: 1px solid transparent;
+  border-radius: 2rem;
+  background-color: #CD5C5C;
+  padding: 1rem;
+}
+
+#navbar-mobile {
+  display: flex !important;
+}
+
+#navbar-links a {
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+}
+
+#navbar-links a:hover {
+  background-color: #F4A460;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 0 1.8rem;
+}
+
+/*FORMULÁRIO*/
+.form-control label, form label {
+  text-transform: uppercase;
+}
+
+.form-control:focus {
+  border: 1px solid #F4A460 !important;
+  box-shadow: none !important;
+}
+
+label {
+  margin: 0;
+}

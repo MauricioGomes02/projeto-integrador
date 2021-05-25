@@ -1,0 +1,23 @@
+<div class="row mb-2">
+  <div class="col">
+    <div class="card-content">
+      <div class="card-body pr-0 pl-0">
+        <h5 class="card-title">LISTA DE USUÁRIOS</h5>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let usuario of usuarios">
+            <div class="media">
+              <div class="media-body">
+                <h5 class="mt-0">{{usuario.nome}}</h5>
+                <span>{{usuario.ocupacao}}</span>
+              </div>
+              <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-outline-warning border-right-warning mb-2 mb-md-0"><img src="../../assets/img/user-red.svg" routerLink="" width="24"></button>
+                <button type="button" class="btn btn-outline-warning border-left-warning mb-2 mb-md-0"><img src="../../assets/img/user-check-red.svg" (click)="navegarEdicao(usuario.id)" width="24"></button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
