@@ -21,7 +21,7 @@ function load() {
     return !fileBuffer.toString() ? [] : JSON.parse(fileBuffer.toString())
 }
 
-exports.getUsuarios = (req, res, next) => {
+    exports.getUsuarios = (req, res, next) => {
     const usuarios = load();
     res.status(200).json(usuarios);
 };
@@ -70,5 +70,19 @@ exports.put = (req, res, next) => {
 };
 exports.delete = (req, res, next) => {
     let id = req.params.id;
-    res.status(200).send(`Requisição recebida com sucesso! ${id}`);
+    let index;
+    const usuarios = load();
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].id == id) {
+            index = i
+            break;
+        }
+    }
+    if (index || index == 0) {
+        //usuarios[index] = usuario
+        usuarios.splice(index,1);
+        update(usuarios)
+        res.status(204).send(`Usuário ${id} excluído com sucesso!`);
+    }
+    //res.status(200).send(`Requisição recebida com sucesso! ${id}`);
 };

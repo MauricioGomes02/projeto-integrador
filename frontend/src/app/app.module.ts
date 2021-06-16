@@ -11,13 +11,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { EdicaoUsuarioComponent } from './edicao-usuario/edicao-usuario.component';
+import { VisualizacaoUsuarioComponent } from './visualizacao-usuario/visualizacao-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroUsuarioComponent,
     ConsultaUsuarioComponent,
-    EdicaoUsuarioComponent
+    EdicaoUsuarioComponent,
+    VisualizacaoUsuarioComponent
   ],
   imports: [
     BrowserModule,

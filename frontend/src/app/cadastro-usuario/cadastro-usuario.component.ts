@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsuarioService} from '../shared/services/usuario.service';
 import {Usuario} from '../shared/models/usuario';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -21,7 +22,8 @@ export class CadastroUsuarioComponent implements OnInit {
   formulario: FormGroup;
   usuario = {} as Usuario;
   constructor(private formBuilder: FormBuilder,
-              private usuarioService: UsuarioService) {
+              private usuarioService: UsuarioService,
+              private router: Router) {
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
       registroNis: [null, Validators.required],
@@ -51,6 +53,7 @@ export class CadastroUsuarioComponent implements OnInit {
     if (this.formulario.valid) {
       this.usuarioService.createUsuario(this.formulario.value)
         .subscribe((result) => {
+          this.cancel();
           result.status === 201 ? this.resetForm() : console.log(result);
         }, (error => {
           console.log(error);
@@ -59,5 +62,9 @@ export class CadastroUsuarioComponent implements OnInit {
   }
   resetForm(): void {
     this.formulario.reset();
+  }
+
+  cancel(): void {
+    this.router.navigate(['/']);
   }
 }

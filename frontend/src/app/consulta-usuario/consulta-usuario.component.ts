@@ -27,4 +27,18 @@ export class ConsultaUsuarioComponent implements OnInit {
   navegarEdicao(id: number): void {
     this.router.navigate(['/edicao', id]);
   }
+  navegarVisualizacao(id: number): void {
+    this.router.navigate(['/visualizacao', id]);
+  }
+  excluir(usuario: any): void{
+    this.usuarioService.deleteUsuario(usuario)
+      .subscribe((result) => {
+        console.log(result);
+        this.usuarioService.getUsuarios().subscribe((usuarios: Usuario[]) => {
+          this.usuarios = usuarios;
+        });
+      }, (error => {
+        console.log(error);
+      }));
+  }
 }

@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Usuario} from '../models/usuario';
 import {catchError, retry} from 'rxjs/operators';
+import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,12 @@ export class UsuarioService {
 
   updateUsuario(usuario: any): Observable<any> {
     return this.httpClient.put(`${this.url}/${usuario.id}`, usuario, {
+      responseType: 'text'
+    })
+      .pipe(catchError(this.handleError));
+  }
+  deleteUsuario(usuario: any): Observable<any> {
+    return this.httpClient.delete(`${this.url}/${usuario.id}`, {
       responseType: 'text'
     })
       .pipe(catchError(this.handleError));
